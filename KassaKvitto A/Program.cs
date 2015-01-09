@@ -21,7 +21,7 @@ namespace kassakvitto
                 Console.WriteLine("Totalsumman är för liten. Köpet kunde inte genomföras.");
                 Console.ResetColor();
                 Console.ReadKey();
-                Environment.Exit(0);
+                return;
             }
 
             int betalning = 0;
@@ -41,7 +41,7 @@ namespace kassakvitto
                         Console.WriteLine("Erhållet belopp är inte tillräckligt. Köpet kan inte genomföras");
                         Console.ResetColor();
                         Console.ReadKey();
-                        Environment.Exit(0);
+                        return;
                     }
                     // Bryter loopen för att gå vidare vid rätt belopp
                     break;
@@ -63,15 +63,15 @@ namespace kassakvitto
             Console.WriteLine("\n\nKVITTO");
             Console.WriteLine("-------------------------------------------");
 
-            Console.WriteLine("Totalt         : {0:f2}\tkr", totSumma);
-            Console.WriteLine("Öresavrundning : {0:f2}\t\tkr", oresAvrundning);
-            Console.WriteLine("Att betala     : {0}\t\tkr", oresUtjamning);
-            Console.WriteLine("Kontant        : {0}\t\tkr", betalning);
-            Console.WriteLine("Tillbaka       : {0}\t\tkr", vaxel);
+            Console.WriteLine("{0,-20} : {1,10:c}", "Totalt", totSumma);
+            Console.WriteLine("{0,-20} : {1,10:c}", "Öresavrundning", oresAvrundning);
+            Console.WriteLine("{0,-20} : {1,10:c0}", "Att Betala", oresUtjamning);
+            Console.WriteLine("{0,-20} : {1,10:c0}", "Kontant", betalning);
+            Console.WriteLine("{0,-20} : {1,10:c0}", "Tillbaka", vaxel);
 
             Console.WriteLine("-------------------------------------------\n\n");
 
-            //deklarera variabler
+            //deklarera fältvariabler
             int resterandeSumma = 0;
 
             // Räknar ut växelpengar av dess olika antal som kund ska få tillbaka
@@ -127,8 +127,6 @@ namespace kassakvitto
                 Console.WriteLine("Det var jämna pengar!");
                 Console.WriteLine("Ha en bra dag!");
             }
-            // Väntar på userinput innan programmet avslutats
-            Console.ReadKey();
         }
     }
 }

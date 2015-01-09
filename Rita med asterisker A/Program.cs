@@ -37,8 +37,7 @@ namespace Rita_med_asterisker_A
                 }
                 Console.ResetColor();
                 Console.WriteLine();
-            }
-            Console.ReadKey(); // Väntar på KeyInput innan programmet avslutas 
+            } 
         }
     }
 }
