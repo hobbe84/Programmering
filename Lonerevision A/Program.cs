@@ -70,12 +70,12 @@ namespace Lonerevision_A
 
         static void HanteraLoner(int antalLoner)
         {
+            string prompt = "Ange lön nummer ";
             int[] loner = new int[antalLoner];
             Console.WriteLine();
             for (int i = 0; i < antalLoner; i++) // Loopar Löneantalet och sparar värden i en array
             {
-                Console.Write("Ange Lön nummer {0}: ", i + 1);
-                loner[i] = int.Parse(Console.ReadLine());
+                loner[i] = LasInt(prompt + (i + 1) + ": ");
             }
             int[] sortLoner = new int[antalLoner];
 
