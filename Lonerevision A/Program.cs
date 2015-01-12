@@ -15,7 +15,7 @@ namespace Lonerevision_A
         {
             int antalLoner;
 
-            do
+            do // Hantering av löneantal och felhantering på värde mindre än 2
             {
                 Console.Clear();
                 antalLoner = LasInt("Ange antal löner att mata in: ");
@@ -43,11 +43,10 @@ namespace Lonerevision_A
 
         static int LasInt(string prompt)
         {
-
-            string braNummer = String.Empty;
+            string braNummer = string.Empty;
             int antalLoner = 0;
 
-            while (true)
+            while (true) // Felhantering på input ifall du anger en sträng ist för ett heltal
             {
                 try
                 {
@@ -73,27 +72,30 @@ namespace Lonerevision_A
         {
             int[] loner = new int[antalLoner];
             Console.WriteLine();
-            for (int i = 0; i < antalLoner; i++)
+            for (int i = 0; i < antalLoner; i++) // Loopar Löneantalet och sparar värden i en array
             {
                 Console.Write("Ange Lön nummer {0}: ", i + 1);
                 loner[i] = int.Parse(Console.ReadLine());
             }
             int[] sortLoner = new int[antalLoner];
 
-            Array.Copy(loner, sortLoner, antalLoner);
+            Array.Copy(loner, sortLoner, antalLoner); // Kopierar nuvarande array till ny array och sorterar den
             Array.Sort(sortLoner);
 
-            double medianLon = 0.0;
+            // deklarerar fältvariabler
+            int medianLon = 0;
             double medelLon = sortLoner.Average();
-            double loneSpridning = sortLoner.Max() - sortLoner.Min();
-
-            if (sortLoner.Length % 2 == 1)
+            int loneSpridning = sortLoner.Max() - sortLoner.Min();
+            
+            if (sortLoner.Length % 2 == 1) // Hanterar löneindex till medianvärde av jämna/udda värden
             {
                 medianLon = sortLoner[sortLoner.Length / 2];
             }
             else
             {
-                medianLon = sortLoner[sortLoner.Length/2] - 1;
+                int jamn1 = sortLoner[sortLoner.Length / 2];
+                int jamn2 = sortLoner[sortLoner.Length / 2] - 1;
+                medianLon = (jamn1 + jamn2) / 2;
             }
 
             Console.WriteLine();
@@ -113,12 +115,11 @@ namespace Lonerevision_A
             }
             int raknare = 0;
 
-            foreach (int loop in loner)
+            foreach (int loop in loner) // Loopar första arrayn med 3 index per rad
             {
                 if (raknare%3 == 0)
                     {
-                        Console.WriteLine();
-                        Console.Write("{0,8}", loop);
+                        Console.Write("\n{0,8}", loop);
                         raknare++;
                     }
                     else
