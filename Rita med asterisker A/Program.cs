@@ -17,7 +17,7 @@ namespace Rita_med_asterisker_A
                 {
                     Console.Write(" ");
                 }
-                switch (rad % 3) // kör igenom switchsatsen cases tills påståendet blir sant, startar sen om på case 0 
+                switch (rad % 3) // kör igenom switchsatsen cases för varje loop, startar sen om på case 0 
                 {
                     case 0:
                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -37,7 +37,9 @@ namespace Rita_med_asterisker_A
                 }
                 Console.ResetColor();
                 Console.WriteLine();
-            } 
+            }
+            Console.WriteLine("Tryck valfri tangent för att avsluta...");
+            Console.ReadKey(); // Väntar på KeyInput innan programmet avslutas 
         }
     }
 }
