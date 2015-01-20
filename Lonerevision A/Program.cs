@@ -44,7 +44,7 @@ namespace Lonerevision_A
         static int LasInt(string prompt)
         {
             string braNummer = string.Empty;
-            int antalLoner = 0;
+            int talHantering = 0;
 
             while (true) // Felhantering på input ifall du anger en sträng ist för ett heltal
             {
@@ -52,7 +52,7 @@ namespace Lonerevision_A
                 {
                     Console.Write(prompt);
                     braNummer = Console.ReadLine();
-                    antalLoner = int.Parse(braNummer);
+                    talHantering = int.Parse(braNummer);
                     break;
                 }
                 catch (Exception)
@@ -64,18 +64,18 @@ namespace Lonerevision_A
                     
                 }
             }
-            return antalLoner;
+            return talHantering;
 
         }
 
         static void HanteraLoner(int antalLoner)
         {
-            string prompt = "Ange lön nummer ";
             int[] loner = new int[antalLoner];
             Console.WriteLine();
             for (int i = 0; i < antalLoner; i++) // Loopar Löneantalet och sparar värden i en array
             {
-                loner[i] = LasInt(prompt + (i + 1) + ": ");
+                string prompt = "Ange lön nummer " + (i + 1) + ": ";
+                loner[i] = LasInt(prompt);
             }
             int[] sortLoner = new int[antalLoner];
 
@@ -115,16 +115,16 @@ namespace Lonerevision_A
             }
             int raknare = 0;
 
-            foreach (int loop in loner) // Loopar första arrayn med 3 index per rad
+            foreach (int visaLoner in loner) // Loopar första arrayn med 3 index per rad
             {
                 if (raknare%3 == 0)
                     {
-                        Console.Write("\n{0,8}", loop);
+                        Console.Write("\n{0,8}", visaLoner);
                         raknare++;
                     }
                     else
                     {
-                        Console.Write("{0,8}", loop);
+                        Console.Write("{0,8}", visaLoner);
                         raknare++;
                     }
             }
