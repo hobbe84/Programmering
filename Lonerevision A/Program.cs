@@ -74,7 +74,7 @@ namespace Lonerevision_A
             Console.WriteLine();
             for (int i = 0; i < antalLoner; i++) // Loopar Löneantalet och sparar värden i en array
             {
-                string prompt = "Ange lön nummer " + (i + 1) + ": ";
+                string prompt = string.Format("Ange lön nummer {0}: ",i+1);
                 loner[i] = LasInt(prompt);
             }
             int[] sortLoner = new int[antalLoner];
