@@ -83,7 +83,7 @@ namespace Lonerevision_A
             Array.Sort(sortLoner);
 
             // deklarerar fältvariabler
-            int medianLon = 0;
+            decimal medianLon = 0;
             double medelLon = sortLoner.Average();
             int loneSpridning = sortLoner.Max() - sortLoner.Min();
             
@@ -94,8 +94,8 @@ namespace Lonerevision_A
             else
             {
                 int jamn1 = sortLoner[sortLoner.Length / 2];
-                int jamn2 = sortLoner[sortLoner.Length / 2] - 1;
-                medianLon = (jamn1 + jamn2) / 2;
+                int jamn2 = sortLoner[sortLoner.Length / 2 - 1];
+                medianLon = (jamn1 + jamn2) / 2.0m;
             }
 
             Console.WriteLine();
@@ -105,9 +105,9 @@ namespace Lonerevision_A
                 Console.Write("-");
             }
             
-            Console.WriteLine("\n{0} : {1,13:C0}", "Medianlön", medianLon);
-            Console.WriteLine("{0} : {1,14:C0}", "Medellön", medelLon);
-            Console.WriteLine("{0} : {1:C0}\n", "Lönespridning", loneSpridning);
+            Console.WriteLine("\n{0,-15} : {1,10:C0}", "Medianlön", medianLon);
+            Console.WriteLine("{0,-15} : {1,10:C0}", "Medellön", medelLon);
+            Console.WriteLine("{0,-15} : {1,10:C0}\n", "Lönespridning", loneSpridning);
             
             for (int j = 0; j < 40; j++)
             {

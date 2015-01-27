@@ -10,7 +10,7 @@ namespace Laboration4.A
 
         public const int MaxNumberOfGuesses = 7;
 
-        public void Initialize()
+        public void Initialize() // Metod som slumpar fram nytt nummer att gissa vid start och sätter gissningsräknaren till 0
         {
             Random random = new Random();
             _number = random.Next(1, 100);
@@ -18,9 +18,9 @@ namespace Laboration4.A
 
         }
 
-        public bool MakeGuess(int number)
+        public bool MakeGuess(int number) // Metod som hanterar gissningsinput ifrån användaren
         {
-            
+            // Kollar ifall input ligger inom rimliga värden och att användaren inte kan gissa mer än sju gånger
             if (number >= 101 || number <= 0)
             {
                 throw new ArgumentOutOfRangeException();
