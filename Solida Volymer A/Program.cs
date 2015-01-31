@@ -111,7 +111,7 @@ namespace Solida_Volymer_A
             Console.WriteLine("═══════════════════════════════════════");
             Console.Write("Ange ditt menyval [0-2]: ");
         }
-        //Visar detaljheader och hämtar värden via ToString i objektet solid.
+        //Visar detaljheader och hämtar värden via ToString i klassen Solid.
         static void ViewSolidDetail(Solid solid)
         {
             Console.Clear();
