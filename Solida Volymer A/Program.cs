@@ -77,7 +77,6 @@ namespace Solida_Volymer_A
         static double ReadDoubleGreaterThenZero(string prompt)
         {
             double input;
-
             do
             {
                 Console.ResetColor();
@@ -111,10 +110,9 @@ namespace Solida_Volymer_A
             Console.WriteLine("═══════════════════════════════════════");
             Console.Write("Ange ditt menyval [0-2]: ");
         }
-        //Visar detaljheader och hämtar värden via ToString i klassen Solid.
+        //Visar detaljheader och hämtar värden via ToString i Klassen Solid.
         static void ViewSolidDetail(Solid solid)
-        {
-            Console.Clear();
+        {            
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("╔═════════════════════════════════════╗");

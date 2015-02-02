@@ -19,10 +19,8 @@ namespace Solida_Volymer_A
         {
             get { return Height * RadiusSquared * Math.PI; }
         }
-
         public Cylinder(double radius, double height)
             : base(radius, height) // Anropar Solids konstuktor
-        {
-        }
+        { }
     }
 }

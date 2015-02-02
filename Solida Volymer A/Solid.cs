@@ -13,7 +13,6 @@ namespace Solida_Volymer_A
 
         //Egenskaper
         public abstract double BaseArea { get; }
-
         public double Height
         {
             get { return _height; }
@@ -26,7 +25,6 @@ namespace Solida_Volymer_A
                 _height = value;
             }
         }
-
         public double HeightSquared
         {
             get
@@ -34,7 +32,6 @@ namespace Solida_Volymer_A
                 return Height * Height;
             }
         }
-
         public double Radius
         {
             get { return _radius; }
@@ -47,7 +44,6 @@ namespace Solida_Volymer_A
                 _radius = value;
             }
         }
-
         public double RadiusSquared
         {
             get
@@ -55,19 +51,14 @@ namespace Solida_Volymer_A
                 return Radius * Radius;
             }
         }
-
         public abstract double SurfaceArea { get; }
-
         public abstract double Volume { get; }
-
-
         // Konstruktor
         protected Solid(double radius, double height)
         {
             Height = height;
             Radius = radius;
         }
-
         // Metoder
         public override string ToString()
         {
