@@ -10,6 +10,7 @@ namespace Rita_med_asterisker_A
     {
         private static void Main(string[] args)
         {
+            Console.Title = "Rita med asterisker Nivå A";
             // Loopar varje rad 25 gånger
             for (int rad = 0; rad < 25; rad++)
             {

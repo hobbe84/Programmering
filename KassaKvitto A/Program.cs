@@ -5,7 +5,8 @@ namespace kassakvitto
     class Program
     {
         static void Main(string[] args)
-        {   
+        {
+            Console.Title = "KassaKvitto Nivå A";
             //deklarerar variabler
             double totSumma = 0;
                         

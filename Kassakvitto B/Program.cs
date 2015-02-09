@@ -9,9 +9,9 @@ namespace kassaKvittoB
             do
             {
                 Console.Clear();
-                Console.Title = "KassaKvitto B";
+                Console.Title = "KassaKvitto Nivå B";
 
-                decimal subSumma = LasPositvDouble("Ange totalsumman: ");
+                decimal subSumma = LasPositvDecimal("Ange totalsumman: ");
                 decimal totSumma = (decimal)Math.Round(subSumma);
                 decimal oresAvrundning = totSumma - subSumma;
                 decimal betalat = LasDecimal("Ange erhållet belopp: ", totSumma);
@@ -36,7 +36,7 @@ namespace kassaKvittoB
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
 
         }
-        static decimal LasPositvDouble(string titel)
+        static decimal LasPositvDecimal(string titel)
         {
             string input = string.Empty;
             decimal kostnad = 0.0m;

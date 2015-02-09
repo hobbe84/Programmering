@@ -12,6 +12,7 @@ namespace Kylskåp_A
 
         static void Main(string[] args)
         {
+            Console.Title = "Kylskåp Nivå A";
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("╔═════════════════════════════════════╗");

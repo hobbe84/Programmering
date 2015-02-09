@@ -43,6 +43,7 @@ namespace Solida_Volymer_A
 
         static void Main(string[] args)
         {
+            Console.Title = "Solida Volymer Nivå A";
             do
             {
                 Console.Clear();
