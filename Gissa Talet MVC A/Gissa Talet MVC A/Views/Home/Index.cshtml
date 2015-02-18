@@ -1,0 +1,89 @@
+﻿@using Gissa_Talet_MVC_A.Models
+@model Gissa_Talet_MVC_A.Models.SecretNumber
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <title>Gissa det hemliga talet</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="header">Gissa det hemliga talet!</h2>
+        <div class="border" style="background-color: lightgray; height: 30px; border-radius: 2px 2px;"></div>
+        @using (Html.BeginForm())
+        {
+            if (Model.LastGuessedNumber.Outcome != Outcome.Right)
+            {
+                <h3><strong>@Model.GuessNr</strong></h3>
+                @Html.ValidationSummary()
+                @Html.AntiForgeryToken() 
+                <div>
+                    <p>
+                        <strong class="pull-left">Gissa ett tal mellan 1 och 100</strong>                         
+                        <input class="pull-left input-sm type="text" style="width:50px; margin: 1px 8px;" name="number" autofocus disabled="@(!Model.CanMakeGuess)" />                       
+                        <button class="btn btn-primary" type="submit" disabled="@(!Model.CanMakeGuess)">Skicka Gissning</button>
+                    </p>
+                </div>
+            }
+            else
+            {
+                <h3><strong>Rätt Gissat!</strong></h3>
+            }
+        }
+        <!--skriv ut listan-->
+        @if (Model.Count > 0)
+        {
+            int number = 1;
+            <p>@Model.OutcomeGuess</p>
+            <div>
+                @foreach (var item in Model.Guessednumbers)
+                {
+                <table class="pull-left" style="width:50px;">
+                    @switch (item.Outcome)
+                    {                            
+                        case Outcome.Right:
+                            <tr>     
+                                <td class="head">@number</td>
+                            </tr>
+                            <tr>
+                                <td class="success">√<br />@item.Number</td>
+                            </tr>
+                            break;
+                        case Outcome.High:
+                        <tr>
+                            <td class="head">@number</td>
+                        </tr>
+                        <tr>
+                            <td class="highValue">↑<br />@item.Number</td>
+                        </tr>
+                            break;
+                        case Outcome.Low:
+                        <tr>
+                            <td class="head">@number</td>
+                        </tr>
+                        <tr>
+                            <td class="lowValue">↓<br />@item.Number</td>
+                        </tr>
+                            break;
+                    }
+                </table>
+                number++;
+                }
+            </div>
+        }
+        <div class="clearfix" style="margin: 8px auto 8px auto;"></div>
+        @Html.ActionLink("Slumpa Nytt Tal!", "NewPage")
+
+        <div class="border" style="height: 5px; margin: 8px 0 8px 0; background-color: lightgrey;"></div>
+        <div class="footer"><p class="form-group">© 2015 - Gissa det hemliga talet! Av: Joacim Johansson SN14 Kalmar</p></div>
+    </div>
+</body>
+</html>

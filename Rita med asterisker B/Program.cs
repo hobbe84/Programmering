@@ -14,8 +14,7 @@ namespace Rita_med_asterisker_B
         // const string inputValue = "";
 
         static void Main(string[] args)
-        {
-            Console.Title = "Rita med Asterisker Nivå B";
+        {            
             do
             {
                 Console.Clear();

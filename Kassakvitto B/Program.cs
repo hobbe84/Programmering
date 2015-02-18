@@ -9,7 +9,7 @@ namespace kassaKvittoB
             do
             {
                 Console.Clear();
-                Console.Title = "KassaKvitto Nivå B";
+                Console.Title = "KassaKvitto B";
 
                 decimal subSumma = LasPositvDecimal("Ange totalsumman: ");
                 decimal totSumma = (decimal)Math.Round(subSumma);

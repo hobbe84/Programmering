@@ -38,13 +38,12 @@ namespace Lonerevision_B
             return false;
         }
         static void Main(string[] args)
-        {
-            Console.Title = "Lönerevision Nivå B";
+        {            
             do
             {
                 Console.Clear();
                 Console.CursorVisible = true;
-                int numberOfSalaries = ReadInt("Ange antal löner att mata in: ");
+                int numberOfSalaries = ReadPositiveInt("Ange antal löner att mata in: ");
                 int[] salaries = new int[numberOfSalaries];
                 if (numberOfSalaries < 2)
                 {
@@ -60,7 +59,7 @@ namespace Lonerevision_B
                 ViewMessage("\nTryck ner valfri tangent för ny beräkning - ESC avslutar", false);
             } while (IsContinuing());
         }
-        private static int ReadInt(string prompt)
+        private static int ReadPositiveInt(string prompt)
         {
             string numricalManagement = string.Empty;
             int positiveNumber = 0;
@@ -91,7 +90,7 @@ namespace Lonerevision_B
             for (int i = 0; i < count; i++) // Loopar Löneantalet och sparar värden i en array
             {
                 string prompt = string.Format("Ange lön nummer {0}: ", i + 1);
-                salaries[i] = ReadInt(prompt);
+                salaries[i] = ReadPositiveInt(prompt);
             }
             return salaries;
         }       
