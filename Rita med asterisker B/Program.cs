@@ -8,9 +8,9 @@ namespace Rita_med_asterisker_B
 {
     class Program
     {
-        const byte _maxValue = 79;
-        const string prompt = "Ange det udda heltal asterisker mellan 1-79 i trianglens bas: ";
-        const string keyInput = "\nTryck ner valfri tangent för ny beräkning - ESC avslutar";
+        const byte MaxValue = 79;
+        const string Prompt = "Ange det udda heltal asterisker mellan 1-79 i trianglens bas: ";
+        const string KeyInput = "\nTryck ner valfri tangent för ny beräkning - ESC avslutar";
         // const string inputValue = "";
 
         static void Main(string[] args)
@@ -18,15 +18,15 @@ namespace Rita_med_asterisker_B
             do
             {
                 Console.Clear();
-                byte maxCount = ReadOddByte(prompt);
+                byte maxCount = ReadOddByteLessThenMaxValue(Prompt);
                 Console.WriteLine();
                 RenderTriangle(maxCount);
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine(keyInput);
+                Console.WriteLine(KeyInput);
                 Console.ResetColor();
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
         }
-        static byte ReadOddByte(string prompt)
+        static byte ReadOddByteLessThenMaxValue(string prompt)
         {
             while (true)
             {
@@ -35,12 +35,12 @@ namespace Rita_med_asterisker_B
                 inputValue = Console.ReadLine();
                 try
                 {
-                    byte _number = byte.Parse(inputValue);
-                    if (_number % 2 == 0 || _number > _maxValue)
+                    byte number = byte.Parse(inputValue);
+                    if (number % 2 == 0 || number > MaxValue)
                     {
                         throw new ArgumentException();
                     }                    
-                    return _number;
+                    return number;
                 }
                 catch (Exception)
                 {

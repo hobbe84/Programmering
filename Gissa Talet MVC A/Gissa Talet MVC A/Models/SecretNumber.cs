@@ -13,20 +13,10 @@ namespace Gissa_Talet_MVC_A.Models
         private GuessedNumber _lastGuessedNumber; // Fält som innehåller den senaste gissningen med utfallet
         private int? _number; // Ska innehålla det hemliga numret via slumpning
         public const int MaxNumberOfGuesses = 7; // Definerar hur många gissningar du har på dig att gissa
-        private string _guessNr; // Switchar vilken gissning som användare är på och visar på skärmen
-        private string _outcomeGuess; // Presenterar utfallet av gissningen till en strängtyp  
 
         // Egenskaper
-        public string OutcomeGuess
-        {
-            get { return _outcomeGuess; }
-            private set { _outcomeGuess = value; }
-        }
-        public string GuessNr
-        {
-            get { return PrintGuesses(Count); }
-            private set { _guessNr = value; }
-        }
+        public string OutcomeGuess { get; set; }
+        public string GuessNr { get { return PrintGuesses(Count); } }
         public bool CanMakeGuess // ger sant / falskt ifall det går att gissa eller inte
         {
             get { return MaxNumberOfGuesses == Count ? false : true; }
@@ -49,7 +39,7 @@ namespace Gissa_Talet_MVC_A.Models
         // Metoder
         public string PrintGuesses(int count) // Metod som presenterar hur många gissningar användaren gjort och vilket försök man klarade det på
         {
-            _guessNr = string.Empty;
+            string _guessNr = string.Empty;
             if (count > 0)
             {                
                 switch (count)
@@ -71,7 +61,7 @@ namespace Gissa_Talet_MVC_A.Models
                 }                
                 if (_lastGuessedNumber.Outcome != Outcome.Right)
                 {
-                    _guessNr = _guessNr + " gissningen";
+                    _guessNr += " gissningen";
                 }
             }            
             return _guessNr;
@@ -116,15 +106,13 @@ namespace Gissa_Talet_MVC_A.Models
                         string rightAnswer = PrintGuesses(Count + 1); // Räknar upp rätt försök när användare anger rätt tal 
                         OutcomeGuess = string.Format("Grattis! Du klarade det på {0} försöket!", rightAnswer.ToLower());
                     }
-                    _guessedNumbers.Add(_lastGuessedNumber);                                        
-                    
-                    
+                    _guessedNumbers.Add(_lastGuessedNumber);                                       
                 }                
             }
             if (!CanMakeGuess && LastGuessedNumber.Outcome != Outcome.Right)
-            {
+            { 
                 _lastGuessedNumber.Outcome = Outcome.NoMoreGuesses;
-                OutcomeGuess = string.Format("{0} Inga fler gissningar! Det hemliga talet är {1}", _outcomeGuess, _number);
+                OutcomeGuess = string.Format("{0} Inga fler gissningar! Det hemliga talet är {1}", OutcomeGuess, _number);
             }
             return _lastGuessedNumber.Outcome;
         }

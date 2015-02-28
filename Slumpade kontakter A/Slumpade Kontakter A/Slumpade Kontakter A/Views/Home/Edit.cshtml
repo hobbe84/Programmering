@@ -1,0 +1,16 @@
+﻿@model Slumpade_Kontakter_A.Models.Contact
+
+@{
+    ViewBag.Title = "Redigera kontakt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Redigera kontakten @Model.FirstName @Model.LastName</h2>
+
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.Partial("~/Views/Shared/_PartialView.cshtml") 
+}
+
+<div>
+    @Html.ActionLink("Tillbaka till Startsidan", "Index","Home", new { @class = "btn btn-info btn-xs"})
+</div>

@@ -12,8 +12,8 @@ namespace Gissa_Talet_MVC_A.Controllers
         // GET: Index
         public ActionResult Index()
         {
-            var model = GetListToSession();            
-            return View(model);
+            var model = NewSession();
+            return View(model);            
         }        
         // GET: SessionTimeout
         public ActionResult SessionTimeout() // skickar användaren vidare till nästa sida ifall dom tar för långt tid på sig, default 20min
@@ -21,9 +21,9 @@ namespace Gissa_Talet_MVC_A.Controllers
             return View();
         }
         // GET: NewPage
-        public ActionResult NewPage() // Rensar sidan och slumpar nytt hemligt nummer
+        public ActionResult NewRandomNr() // Rensar sidan och slumpar nytt hemligt nummer
         {
-            GetListToSession().Initialize();
+            NewSession().Initialize();
             return RedirectToAction("Index");
         }
         [HttpPost]
@@ -35,7 +35,7 @@ namespace Gissa_Talet_MVC_A.Controllers
                 return View("SessionTimeout");
             }
 
-            var model = GetListToSession();
+            var model = NewSession();
 
             if (!number.HasValue)
             {
@@ -53,16 +53,16 @@ namespace Gissa_Talet_MVC_A.Controllers
             return View(model);
         }
 
-        private SecretNumber GetListToSession() // skapar en ref objekt av ett Session Objekt till att lagra gissningar
+        private SecretNumber NewSession() // skapar en ref objekt av ett Session Objekt till att lagra gissningar
         {
-            var guessList = Session["savedList"] as SecretNumber;
+            var guessedList = Session["savedList"] as SecretNumber;
 
-            if (guessList == null)
+            if (guessedList == null)
             {
-                guessList = new SecretNumber();
-                Session["savedList"] = guessList;
+                guessedList = new SecretNumber();
+                Session["savedList"] = guessedList;
             }
-            return guessList;
+            return guessedList;
         }
 
 

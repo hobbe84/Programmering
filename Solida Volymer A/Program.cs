@@ -88,7 +88,7 @@ namespace Solida_Volymer_A
                 }
                 Console.BackgroundColor = ConsoleColor.Red;
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("\nFEL! Måste vara ett värde större än 0.");
+                Console.WriteLine("\nFEL! Måste vara ett värde större än 0,99.");
                 Console.ResetColor();
             } while (true);
         }

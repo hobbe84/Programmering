@@ -1,0 +1,47 @@
+﻿@model Slumpade_Kontakter_A.Models.Contact
+
+@{
+    ViewBag.Title = "Ta Bort Kontakt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bekräfta borttagning av kontakt</h2>
+
+<h3>Kontakten @Model.FirstName @Model.LastName</h3>
+<div>
+    <h4>Är du säker att du vill ta bort denna kontakten?</h4>
+    <hr />
+    <dl class="dl-horizontal" style="margin-left: -80px;">
+        <dt>
+            Förnamn:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            Efternamn:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt>
+            Email:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            Skapad den:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+    </dl>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger btn-sm" /> |
+            @Html.ActionLink("Till Startsidan", "Index","Home", new { @class = "btn btn-info btn-sm"})
+        </div>
+    }
+</div>

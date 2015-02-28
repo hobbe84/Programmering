@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Slumpade_Kontakter_A.Models.Contact>
+@{
+    ViewBag.Title = "Labb 8A";
+}
+<p>
+    @Html.ActionLink("Lägg till ny kontakt", "Create", "Home", htmlAttributes: new { @class = "btn btn-primary btn-sm" })
+</p>
+@if (Model != null && Model.Any())
+{
+    <table class="table table-hover" style="border-top: hidden">
+            <tr>
+                <th></th>
+                <th>Skapad</th>
+                <th>Namn</th>
+                <th>Efternamn</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        <tbody class="table-responsive">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>                        
+                        @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-sm glyphicon glyphicon-pencil" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm glyphicon glyphicon-remove" })                       
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="clearfix"></div>
+}

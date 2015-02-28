@@ -31,11 +31,7 @@ namespace Lonerevision_B
         }
         static bool IsContinuing()
         {
-            if (Console.ReadKey(true).Key != ConsoleKey.Escape)
-            {
-                return true;
-            }
-            return false;
+            return Console.ReadKey(true).Key != ConsoleKey.Escape ? true : false;
         }
         static void Main(string[] args)
         {            
