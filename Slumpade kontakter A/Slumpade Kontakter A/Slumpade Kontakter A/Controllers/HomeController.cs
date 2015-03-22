@@ -92,7 +92,7 @@ namespace Slumpade_Kontakter_A.Controllers
                 {
                     _repository.EditContact(contactUpdate);
                     _repository.Save();
-                    TempData["success"] = string.Format("{0} {1} ändrades",contact.FirstName, contactUpdate.LastName);
+                    TempData["success"] = string.Format("{0} {1} ändrades",contactUpdate.FirstName, contactUpdate.LastName);
 
                     return RedirectToAction("Index");
                 }
@@ -127,7 +127,7 @@ namespace Slumpade_Kontakter_A.Controllers
                 var contactDelete = new Contact { Id = id };
                 _repository.DeleteContact(contactDelete);
                 _repository.Save();
-                TempData["success"] = string.Format("{0} {1} tog bort",contact.FirstName, contact.LastName);
+                TempData["success"] = string.Format("Kontakten togs bort");
             }
             catch (Exception)
             {
